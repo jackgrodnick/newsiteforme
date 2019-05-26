@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=devanagari,latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  </head>
+  <body onload="followMouse()">
+
+    <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </nav>
+
+    <div class="wrapc">
+      <div id="ball">
+
+      </div>
+    </div>
+
+
+
+    <div class="container">
+
+
+      <div class="overlay" id="noscroll">
+
+        <p class="screen">EXPLORE</p>
+        <div class="intro">
+          <button class="myBtn" onclick="someFunc()">EXPLORE</button>
+        </div>
+      </div>
+
+
+      <div class="overlay-2">
+      </div>
+
+
+      <div class="fixedstuff content" id="box">
+
+
+        <h1>Landing Page</h1>
+        <p class="data">
+          segriojfjiofrjfajio;aroijfoijjoidf
+
+        </p>
+      </div>
+
+    </div>
+<!-- this is for the word ive done -->
+
+
+
+<script type="text/javascript">
+    function someFunc() {
+        fadeOut();
+        setTimeout(removeClass, 4000);
+    }
+
+    var box = document.getElementById("box");
+    var cList = box.classList.toString();
+
+    function removeClass() {
+      box.classList.remove("fixedstuff");
+    }
+
+
+</script>
+<script type="text/javascript">
+
+  function fadeOut() {
+
+    TweenMax.to(".myBtn", 1, {
+      y: -100,
+      opacity: 0
+    });
+
+    TweenMax.to(".screen", 2, {
+      y: -400,
+      opacity: 0,
+      ease: Power2.easeInOut,
+      delay: 2
+    });
+
+    TweenMax.from(".overlay", 2, {
+      ease: Power2.easeInOut
+    });
+
+    TweenMax.to(".overlay", 2, {
+      delay: 2.6,
+      top: "-110%",
+      ease: Expo.easeInOut
+    });
+
+    TweenMax.to(".overlay-2", 2, {
+      delay: 3,
+      top: "-110%",
+      ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".content", 2, {
+      delay: 3.2,
+      opacity: 0,
+      ease: Power2.easeInOut
+    });
+
+    TweenMax.to(".content", 2, {
+      opacity: 1,
+      y: -300,
+      delay: 3.2,
+      ease: Power2.easeInOut
+    });
+
+    TweenMax.from("nav", 2, {
+      delay: 3.2,
+      opacity: 0,
+      ease: Power2.easeInOut
+    });
+
+    TweenMax.to("nav", 2, {
+      opacity: 1,
+      y: 0,
+      delay: 3.2,
+      ease: Power2.easeInOut
+    });
+  }
+</script>
+
+<script type="text/javascript">
+
+  var $ = document.querySelector.bind(document);
+  var $on = document.addEventListener.bind(document);
+
+  var xmouse, ymouse;
+  $on('mousemove', function (e) {
+    xmouse = e.clientX || e.pageX;
+    ymouse = e.clientY || e.pageY;
+  });
+
+  var ball = $('#ball');
+  var x = void 0,
+  y = void 0,
+  dx = void 0,
+  dy = void 0,
+  tx = 0,
+  ty = 0,
+  key = -1;
+
+  var followMouse = function followMouse() {
+    key = requestAnimationFrame(followMouse);
+
+    if(!x || !y) {
+      x = xmouse;
+      y = ymouse;
+    } else {
+      dx = (xmouse - x) * 0.100;
+      dy = (ymouse - y) * 0.100;
+      if(Math.abs(dx) + Math.abs(dy) < 0.1) {
+        x = xmouse;
+        y = ymouse;
+      } else {
+        x += dx;
+        y += dy;
+      }
+    }
+    ball.style.left = x + 'px';
+    ball.style.top = y + 'px';
+  };
+
+
+
+
+
+</script>
+  </body>
+</html>
