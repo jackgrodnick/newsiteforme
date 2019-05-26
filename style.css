@@ -247,4 +247,8 @@ nav ul li a:hover, nav ul li a:active{
   }
 }
 
+nav {
+  display: none;
+}
+
 /* word ive done*/
